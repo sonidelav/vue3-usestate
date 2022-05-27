@@ -22,11 +22,21 @@ Inject state to every instance under `this.$state` global property
 import VueUseState from 'vue3-usestate'
 
 createApp(App).use(VueUseState).mount('#app')
+```
 
+### Global Property
+
+```js
 // App.vue
-...
 computed: {
     state() { return this.$state }
 }
-...
+```
+
+or
+
+```vue
+<template>
+    <div>{{ $state.counter }}</div>
+</template>
 ```
