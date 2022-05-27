@@ -5,7 +5,7 @@ const config: Config = {
   externals: ['vue'],
   output: {
     dir: 'dist',
-    moduleName: 'VueInstanceEvents',
+    moduleName: 'VueUseState',
     format: ['umd', 'esm', 'umd-min', 'esm-min']
   }
 }

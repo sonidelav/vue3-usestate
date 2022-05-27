@@ -1,27 +1,32 @@
-# Vue3 Instance Events Plugin
+# Vue3 `useState` Composable
 
-Adds `.on` and `.emit` into instance API
+Clone of Nuxt3's `useState` composable
 
 ## Usage
 
 ```js
-import { VueInstanceEvents } from 'vue3-instance-events'
-import { createApp } from 'vue'
-import App from './App.vue'
+import { useState } from 'vue3-usestate'
 
-const app = createApp(App).use(VueInstanceEvents)
-const instance = app.mount('#app')
-
-instance.on('showed', () => {
-    ...
-})
-
-// Event names in camelCase
-instance.emit('showComponent')
+setup() {
+    const counter = useState('counter', 0)
+    return { counter }
+}
 ```
 
-## Vue Documentation
+## Plugin
 
-[Breaking Changes v2 to v3 Migrations](https://v3-migration.vuejs.org/breaking-changes/events-api.html#_3-x-update)
+Inject state to every instance under `this.$state` global property
 
-> We removed $on, $off and $once methods from the instance completely. $emit is still a part of the existing API as it's used to trigger event handlers declaratively attached by a parent component.
+```js
+// main.js
+import VueUseState from 'vue3-usestate'
+
+createApp(App).use(VueUseState).mount('#app')
+
+// App.vue
+...
+computed: {
+    state() { return this.$state }
+}
+...
+```

@@ -19,7 +19,7 @@
   "unpkg": "dist/index.umd.min.js",
   "jsdelivr": "dist/index.umd.min.js",
   "main": "dist/index.esm.js",
-  "module": "dist/index.esm.ts",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "keywords": [
     "vue",
