@@ -14,7 +14,7 @@
   "license": "MIT",
   "private": false,
   "sideEffects": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Vue 3 Simple Store Composable",
   "unpkg": "dist/index.umd.min.js",
   "jsdelivr": "dist/index.umd.min.js",
