@@ -1,0 +1,51 @@
+{
+  "name": "vue3-usestate",
+  "author": {
+    "name": "Valentinos Galanos",
+    "email": "sonidelav@hotmail.com",
+    "url": "https://github.com/sonidelav"
+  },
+  "homepage": "https://github.com/sonidelav/vue3-usestate",
+  "bugs": "https://github.com/sonidelav/vue3-usestate/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonidelav/vue3-usestate.git"
+  },
+  "license": "MIT",
+  "private": false,
+  "sideEffects": false,
+  "version": "0.0.1",
+  "description": "Vue 3 Simple Store Composable",
+  "unpkg": "dist/index.umd.min.js",
+  "jsdelivr": "dist/index.umd.min.js",
+  "main": "dist/index.esm.js",
+  "module": "dist/index.esm.ts",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "vue",
+    "vuejs",
+    "vue3",
+    "plugin",
+    "composition",
+    "composable",
+    "store",
+    "state"
+  ],
+  "scripts": {
+    "build": "bili"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "devDependencies": {
+    "bili": "^5.0.5",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "typescript": "^4.7.2"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.13"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}
