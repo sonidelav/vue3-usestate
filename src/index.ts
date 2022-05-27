@@ -1,9 +1,19 @@
 import { isRef, toRef, Plugin, reactive } from 'vue'
 import type { Ref } from 'vue'
 
-const globalState = reactive<any>({
-  counter: 0
-})
+declare module 'vue' {
+  interface ComponentCustomProperties {
+    $state: typeof globalState
+  }
+}
+
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties {
+    $state: typeof globalState
+  }
+}
+
+const globalState = reactive<any>({})
 
 export const useState = <T>(key: string, init?: (() => T | Ref<T> | T)): Ref<T> => {
   const state = toRef(globalState, key)
@@ -26,12 +36,6 @@ export const useState = <T>(key: string, init?: (() => T | Ref<T> | T)): Ref<T> 
 
 const VueUseState: Plugin = (app, options) => {
   app.config.globalProperties.$state = globalState
-}
-
-declare module 'vue' {
-  interface ComponentCustomProperties {
-    $state: typeof globalState
-  }
 }
 
 export default VueUseState
