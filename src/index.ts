@@ -13,22 +13,29 @@ declare module '@vue/runtime-core' {
   }
 }
 
-const globalState = reactive<any>({})
+type IntializeFunc<T> = (() => T | Ref<T>)
+type InitializeValue<T> = T | Ref<T> | IntializeFunc<T>
+type GlobalState = Record<string, any>
 
-export const useState = <T>(key: string, init?: (() => T | Ref<T> | T)): Ref<T> => {
+const globalState = reactive<GlobalState>({})
+
+export const useState = <T>(key: string, init?: InitializeValue<T>): Ref<T> => {
   const state = toRef(globalState, key)
   if (state.value === undefined && init) {
     let initialValue;
-    if (typeof init === 'function') {
+
+    if (init instanceof Function) {
       initialValue = init()
     } else {
       initialValue = init
     }
+
     if (isRef(initialValue)) {
       // vue will unwrap the ref for us
       globalState[key] = initialValue
       return initialValue as Ref<T>
     }
+
     state.value = initialValue
   }
   return state
