@@ -21,7 +21,7 @@ const globalState = reactive<GlobalState>({})
 
 export const useState = <T>(key: string, init?: InitializeValue<T>): Ref<T> => {
   const state = toRef(globalState, key)
-  if (state.value === undefined && init) {
+  if (state.value === undefined && init !== undefined) {
     let initialValue;
 
     if (init instanceof Function) {
