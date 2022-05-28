@@ -2,6 +2,20 @@
 
 Clone of Nuxt3's `useState` composable
 
+## Install
+
+### NPM
+
+```sh
+npm install vue3-usestate
+```
+
+### Yarn
+
+```sh
+yarn add vue3-usestate
+```
+
 ## Usage
 
 ```js
